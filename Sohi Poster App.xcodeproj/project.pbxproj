@@ -13,6 +13,8 @@
 		9ABF1377203E7067008FCE7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9ABF1375203E7067008FCE7A /* Main.storyboard */; };
 		9ABF1379203E7067008FCE7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ABF1378203E7067008FCE7A /* Assets.xcassets */; };
 		9ABF137C203E7067008FCE7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9ABF137A203E7067008FCE7A /* LaunchScreen.storyboard */; };
+		9ABF138B203E7498008FCE7A /* Sohi.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ABF138A203E7498008FCE7A /* Sohi.scnassets */; };
+		9ABF138F203E821E008FCE7A /* MarioKartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABF138E203E821E008FCE7A /* MarioKartViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		9ABF1378203E7067008FCE7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9ABF137B203E7067008FCE7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9ABF137D203E7067008FCE7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9ABF138A203E7498008FCE7A /* Sohi.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Sohi.scnassets; sourceTree = "<group>"; };
+		9ABF138E203E821E008FCE7A /* MarioKartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarioKartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,8 +63,10 @@
 				9ABF136F203E7067008FCE7A /* AppDelegate.swift */,
 				9ABF1371203E7067008FCE7A /* art.scnassets */,
 				9ABF1373203E7067008FCE7A /* ViewController.swift */,
+				9ABF138E203E821E008FCE7A /* MarioKartViewController.swift */,
 				9ABF1375203E7067008FCE7A /* Main.storyboard */,
 				9ABF1378203E7067008FCE7A /* Assets.xcassets */,
+				9ABF138A203E7498008FCE7A /* Sohi.scnassets */,
 				9ABF137A203E7067008FCE7A /* LaunchScreen.storyboard */,
 				9ABF137D203E7067008FCE7A /* Info.plist */,
 			);
@@ -127,6 +133,7 @@
 			files = (
 				9ABF1372203E7067008FCE7A /* art.scnassets in Resources */,
 				9ABF137C203E7067008FCE7A /* LaunchScreen.storyboard in Resources */,
+				9ABF138B203E7498008FCE7A /* Sohi.scnassets in Resources */,
 				9ABF1379203E7067008FCE7A /* Assets.xcassets in Resources */,
 				9ABF1377203E7067008FCE7A /* Main.storyboard in Resources */,
 			);
@@ -140,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9ABF1374203E7067008FCE7A /* ViewController.swift in Sources */,
+				9ABF138F203E821E008FCE7A /* MarioKartViewController.swift in Sources */,
 				9ABF1370203E7067008FCE7A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

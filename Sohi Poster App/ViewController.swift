@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  Sohi Poster App
 //
-//  Created by Guled on 2/21/18.
+//  Created by Guled on 2/18/18.
 //  Copyright © 2018 Somnibyte. All rights reserved.
 //
 
@@ -16,28 +16,20 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Set the view's delegate
         sceneView.delegate = self
-        
-        // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
-        
-        // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
-        
-        // Set the scene to the view
-        sceneView.scene = scene
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        guard let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "SOHIRESOURCE", bundle: nil) else {
+            fatalError("Assets are missing.")
+        }
         
-        // Create a session configuration
+        sceneView.debugOptions = [ARSCNDebugOptions.showWorldOrigin, ARSCNDebugOptions.showFeaturePoints]
+        
         let configuration = ARWorldTrackingConfiguration()
-
-        // Run the view's session
-        sceneView.session.run(configuration)
+        configuration.detectionImages = referenceImages
+        sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -46,35 +38,25 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Pause the view's session
         sceneView.session.pause()
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Release any cached data, images, etc that aren't in use.
-    }
 
     // MARK: - ARSCNViewDelegate
-    
-/*
-    // Override to create and configure nodes for anchors added to the view's session.
-    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        let node = SCNNode()
-     
-        return node
-    }
-*/
-    
-    func session(_ session: ARSession, didFailWithError error: Error) {
-        // Present an error message to the user
+
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         
-    }
-    
-    func sessionWasInterrupted(_ session: ARSession) {
-        // Inform the user that the session has been interrupted, for example, by presenting an overlay
+        guard let imageAnchor = anchor as? ARImageAnchor else { return }
+        let referenceImage = imageAnchor.referenceImage
+            guard
+                // Here we save our portal scene.
+                let sohiScene = SCNScene(named: "Sohi.scnassets/sohilogo.scn"),
+                // Then we save the 'Portal' node within that scene file.
+                let swiftLogoNode = sohiScene.rootNode.childNode(withName: "sohilogo", recursively: false)
+                else { return }
         
-    }
-    
-    func sessionInterruptionEnded(_ session: ARSession) {
-        // Reset tracking and/or remove existing anchors if consistent tracking is required
         
+        if referenceImage.name == "mariokart" {
+            performSegue(withIdentifier: "gamePage", sender: self)
+        } else {
+            node.addChildNode(swiftLogoNode)
+        }
     }
 }
